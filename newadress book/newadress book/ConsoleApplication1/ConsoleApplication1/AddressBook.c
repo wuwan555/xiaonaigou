@@ -41,7 +41,13 @@ void AddressBookSave(AddressBook* pbook, const char* filename)
 	FILE* fp = fopen(filename, "w");
 	for (size_t i = 0; i < pbook->_size; ++i)
 	{
-		fwrite(&(pbook->_AIArray[i]), sizeof(AddressInfo), 1, fp);
+		fputs(pbook->_AIArray[i]._name, fp);
+		fputc('\n', fp);
+		char telstr[20];
+		itoa(pbook->_AIArray[i]._tel, telstr,10);
+		fputs(pbook->_AIArray[i]._tel, fp);
+		fputc('\n', fp);
+		//fwrite(&(pbook->_AIArray[i]), sizeof(AddressInfo), 1, fp);
 	}
 	AddressInfo end;
 	end._age = -1;
@@ -56,7 +62,10 @@ void AddressBookLoad(AddressBook* pbook, const char* filename)
 
 	while (1)
 	{
-		fread(&info, sizeof(AddressInfo), 1, fp);
+		info._name[0] = '\0';
+		info._tel[0] = '\0';
+		info._age = 0;
+		fscanf("%s%s%d",info._name,info._tel,info._age);
 		if (info._age == -1)
 		{
 			break;

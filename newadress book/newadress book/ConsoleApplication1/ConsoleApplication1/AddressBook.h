@@ -18,7 +18,7 @@ typedef struct AddressInfo
 	enum SEX  _sex;
 }AddressInfo;
 
-//#define MAX_SIZE  10000
+#define MAX_SIZE  100
 
 typedef struct AddressBook
 {

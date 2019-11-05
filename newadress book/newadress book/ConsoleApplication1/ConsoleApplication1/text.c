@@ -13,9 +13,9 @@ void TestAddressBook()
 
 	AddressInfo info3 = { "小李", "111", 19, Man };
 	AddressBookAdd(&addressbook, &info3);
-	AddressBookSave(&addressbook, "newaddressfile.bin");
+	AddressBookSave(&addressbook, "addressfile.bin");
 	AddressBookPrint(&addressbook);
-	AddressBookLoad(&addressbook, "newaddressfile.bin");
+	AddressBookLoad(&addressbook, "addressfile.bin");
 	AddressBookPrint(&addressbook);
 	AddressBookDestoty(&addressbook);
 }
@@ -29,11 +29,18 @@ void TestAddressBook()
 //}
 int main()
 {
-	
 	AddressBook addressbook;
 	AddressBookInit(&addressbook); 
+	AddressInfo info1 = { "张三", "110", 18, Man };
+	AddressBookAdd(&addressbook, &info1);
+
+	AddressInfo info2 = { "小王", "111", 19, Man };
+	AddressBookAdd(&addressbook, &info2);
+
+	AddressInfo info3 = { "小李", "111", 19, Man };
+	AddressBookAdd(&addressbook, &info3);
 	//AddressBookLoad(&addressbook, "addressfile.bin");
-	AddressBookSave(&addressbook, "newaddressfile.bin");
+	AddressBookSave(&addressbook, "addressfile.txt");
 	printf("==============================\n");
 	int option = 0;
 	
@@ -45,7 +52,7 @@ int main()
 		scanf("%d", &option);
 		if (option == 1)
 		{
-			printf("请依次输入姓名，电话，年龄，性别：\n");
+			printf("请依次输入姓名,电话,年龄,性别：\n");
 			AddressInfo info;
 			scanf("%s",info._name);
 			scanf("%s", info._tel);
@@ -66,7 +73,7 @@ int main()
 			AddressInfo *ret = AddressBookFind(&addressbook, name);
 			if (ret == NULL)
 			{
-				printf("查无此人");
+				printf("查无此人\n");
 			}
 			else
 			{
@@ -75,6 +82,14 @@ int main()
 				printf("年龄：%d", ret->_age);
 				printf("性别：%d", ret->_sex);
 			}
+		}
+		else if (option == 3)
+		{
+			char name[20];
+			printf("请输入要删除的联系人的姓名：\n");
+			scanf("%s", name);
+			AddressBookDel(&addressbook, name);
+
 		}
 		else if (option == 4)
 		{
@@ -104,8 +119,7 @@ int main()
 		}
 		else if (option == 7)
 		{
-			TestAddressBook();
-			//AddressBookPrint(&addressbook);
+			AddressBookPrint(&addressbook);
 		}
 
 
