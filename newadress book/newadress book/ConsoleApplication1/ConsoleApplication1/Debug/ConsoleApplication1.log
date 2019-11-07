@@ -1,0 +1,24 @@
+﻿生成启动时间为 2019/11/5 星期二 23:05:08。
+     1>项目“E:\VS2013\新建文件夹\xiaonaigou\newadress book\newadress book\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt AddressBook.c text.c
+         text.c
+     1>e:\vs2013\新建文件夹\xiaonaigou\newadress book\newadress book\consoleapplication1\consoleapplication1\text.c(20): warning C4013: “AddressBookDestoty”未定义；假设外部返回 int
+     1>e:\vs2013\新建文件夹\xiaonaigou\newadress book\newadress book\consoleapplication1\consoleapplication1\text.c(63): warning C4553: “==”: 运算符不起任何作用；是否是有意使用“=”的?
+     1>e:\vs2013\新建文件夹\xiaonaigou\newadress book\newadress book\consoleapplication1\consoleapplication1\text.c(65): warning C4553: “==”: 运算符不起任何作用；是否是有意使用“=”的?
+         AddressBook.c
+     1>e:\vs2013\新建文件夹\xiaonaigou\newadress book\newadress book\consoleapplication1\consoleapplication1\addressbook.c(47): warning C4047: “函数”:“int”与“char [24]”的间接级别不同
+     1>e:\vs2013\新建文件夹\xiaonaigou\newadress book\newadress book\consoleapplication1\consoleapplication1\addressbook.c(47): warning C4024: “itoa”: 形参和实参 1 的类型不同
+     1>e:\vs2013\新建文件夹\xiaonaigou\newadress book\newadress book\consoleapplication1\consoleapplication1\addressbook.c(47): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _itoa. See online help for details.
+                 e:\vs2013\vc\include\stdlib.h(937) : 参见“itoa”的声明
+     1>e:\vs2013\新建文件夹\xiaonaigou\newadress book\newadress book\consoleapplication1\consoleapplication1\addressbook.c(67): warning C4133: “函数”: 从“char [7]”到“FILE *”的类型不兼容
+         正在生成代码...
+       Link:
+         E:\VS2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\VS2013\新建文件夹\xiaonaigou\newadress book\newadress book\ConsoleApplication1\Debug\ConsoleApplication1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\VS2013\新建文件夹\xiaonaigou\newadress book\newadress book\ConsoleApplication1\Debug\ConsoleApplication1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\VS2013\新建文件夹\xiaonaigou\newadress book\newadress book\ConsoleApplication1\Debug\ConsoleApplication1.lib" /MACHINE:X86 Debug\AddressBook.obj
+         Debug\text.obj
+         ConsoleApplication1.vcxproj -> E:\VS2013\新建文件夹\xiaonaigou\newadress book\newadress book\ConsoleApplication1\Debug\ConsoleApplication1.exe
+     1>已完成生成项目“E:\VS2013\新建文件夹\xiaonaigou\newadress book\newadress book\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.74

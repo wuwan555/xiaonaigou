@@ -10,7 +10,7 @@ enum SEX
 	Woman,
 };
 
-typedef struct AddressInfo
+typedef struct AddressInfo//通讯录的基本信息
 {
 	char _name[24];
 	char _tel[24];

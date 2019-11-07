@@ -9,7 +9,7 @@ void AddressBookInit(AddressBook* pbook)
 	pbook->_AIArray = (AddressInfo*)malloc(sizeof(AddressInfo)* 2);
 	assert(pbook->_AIArray);
 }
-void AddressBookDestoty(AddressBook *pbook)
+void AddressBookDestoty(AddressBook *pbook)//空间的释放
 {
 	assert(pbook);
 	free(pbook);
@@ -24,7 +24,7 @@ void AddressBookAdd(AddressBook* pbook, AddressInfo* pinfo)
 	if (pbook->_size == pbook->_capacity)
 	{
 		// 空间满了，进行扩容
-		pbook->_AIArray = realloc(pbook->_AIArray, pbook->_capacity * 2 * sizeof(AddressInfo));
+		pbook->_AIArray = realloc(pbook->_AIArray, pbook->_capacity * 2 * sizeof(AddressInfo));//扩容二倍
 		pbook->_capacity *= 2;
 	}
 
@@ -38,7 +38,7 @@ void AddressBookAdd(AddressBook* pbook, AddressInfo* pinfo)
 void AddressBookSave(AddressBook* pbook, const char* filename)
 {
 	assert(pbook);
-	FILE* fp = fopen(filename, "w");
+	FILE* fp = fopen(filename, "w");//文件的写入
 	for (size_t i = 0; i < pbook->_size; ++i)
 	{
 		fputs(pbook->_AIArray[i]._name, fp);
@@ -47,7 +47,6 @@ void AddressBookSave(AddressBook* pbook, const char* filename)
 		itoa(pbook->_AIArray[i]._tel, telstr,10);
 		fputs(pbook->_AIArray[i]._tel, fp);
 		fputc('\n', fp);
-		//fwrite(&(pbook->_AIArray[i]), sizeof(AddressInfo), 1, fp);
 	}
 	AddressInfo end;
 	end._age = -1;
@@ -57,7 +56,7 @@ void AddressBookSave(AddressBook* pbook, const char* filename)
 void AddressBookLoad(AddressBook* pbook, const char* filename)
 {
 	assert(pbook);
-	FILE* fp = fopen(filename, "r");
+	FILE* fp = fopen(filename, "r");//文件的读入
 	AddressInfo info;
 
 	while (1)
@@ -85,7 +84,7 @@ void AddressBookDel(AddressBook* pbook, const char* name)
 		{
 			while (i < pbook->_size - 1)
 			{
-				strcpy(pbook->_AIArray[i]._name, pbook->_AIArray[i + 1]._name);
+				strcpy(pbook->_AIArray[i]._name, pbook->_AIArray[i + 1]._name);//把后一个信息拷贝到目标对象中去，进行覆盖。
 				strcpy(pbook->_AIArray[i]._tel, pbook->_AIArray[i + 1]._tel);
 				pbook->_AIArray[i]._age = pbook->_AIArray[i + 1]._age;
 				pbook->_AIArray[i]._sex = pbook->_AIArray[i + 1]._sex;
@@ -102,7 +101,7 @@ AddressInfo* AddressBookFind(AddressBook* pbook, const char* name)
 	assert(pbook);
 	for (size_t i = 0; i < pbook->_size; ++i)
 	{
-		if (strcmp(pbook->_AIArray[i]._name , name)==0)
+		if (strcmp(pbook->_AIArray[i]._name , name)==0)//使用库函数进行比较
 		{
 			return &pbook->_AIArray[i];
 		}
